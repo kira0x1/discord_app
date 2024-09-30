@@ -6,21 +6,13 @@ export class MainMenu extends Scene {
   }
 
   create() {
-    const bg = this.add.image(
-      this.cameras.main.width / 2,
-      this.cameras.main.height / 2,
-      "background",
-    );
+    const mainCam = this.cameras.main;
 
-    let scaleX = this.cameras.main.width / bg.width + 0.2;
-    let scaleY = this.cameras.main.height / bg.height + 0.2;
-    let scale = Math.max(scaleX, scaleY);
-    bg.setScale(scale).setScrollFactor(0);
-
-    // this.add.image(this.game.config.width * 0.5, 300, 'logo');
+    mainCam.setBackgroundColor(0xbacbf5);
+    this.add.image(mainCam.width / 2, mainCam.height / 2, "frog4x");
 
     this.add
-      .text(this.game.config.width * 0.5, 460, "Main Menu", {
+      .text(this.game.config.width * 0.5, 460, "Menu", {
         fontFamily: "Arial Black",
         fontSize: 38,
         color: "#ffffff",

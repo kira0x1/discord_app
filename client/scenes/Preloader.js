@@ -6,17 +6,6 @@ export class Preloader extends Scene {
   }
 
   init() {
-    const bg = this.add.image(
-      this.cameras.main.width / 2,
-      this.cameras.main.height / 2,
-      "background",
-    );
-
-    let scaleX = this.cameras.main.width / bg.width + 0.2;
-    let scaleY = this.cameras.main.height / bg.height + 0.2;
-    let scale = Math.max(scaleX, scaleY);
-    bg.setScale(scale).setScrollFactor(0);
-
     //  A simple progress bar. This is the outline of the bar.
     this.add
       .rectangle(this.game.config.width * 0.5, this.game.config.height * 0.5, 468, 32)

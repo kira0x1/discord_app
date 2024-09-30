@@ -6,17 +6,7 @@ export class GameOver extends Scene {
   }
 
   create() {
-    this.cameras.main.setBackgroundColor(0xff0000);
-
-    const bg = this.add.image(
-      this.cameras.main.width / 2,
-      this.cameras.main.height / 2,
-      "background",
-    );
-    let scaleX = this.cameras.main.width / bg.width + 0.2;
-    let scaleY = this.cameras.main.height / bg.height + 0.2;
-    let scale = Math.max(scaleX, scaleY);
-    bg.setScale(scale).setScrollFactor(0);
+    this.cameras.main.setBackgroundColor(0xbdbbf5);
 
     this.add
       .text(this.game.config.width * 0.5, 384, "Game Over", {
@@ -24,7 +14,7 @@ export class GameOver extends Scene {
         fontSize: 64,
         color: "#ffffff",
         stroke: "#000000",
-        strokeThickness: 8,
+        strokeThickness: 4,
         align: "center",
       })
       .setOrigin(0.5);

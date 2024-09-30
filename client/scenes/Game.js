@@ -1,4 +1,5 @@
 import { Scene } from "phaser";
+import Button from "../components/button";
 
 export class Game extends Scene {
   constructor() {
@@ -6,29 +7,9 @@ export class Game extends Scene {
   }
 
   create() {
-    this.cameras.main.setBackgroundColor(0x00ff00);
+    this.cameras.main.setBackgroundColor(0xa6d7f7);
 
-    const bg = this.add.image(
-      this.cameras.main.width / 2,
-      this.cameras.main.height / 2,
-      "background",
-    );
-
-    let scaleX = this.cameras.main.width / bg.width + 0.2;
-    let scaleY = this.cameras.main.height / bg.height + 0.2;
-    let scale = Math.max(scaleX, scaleY);
-    bg.setScale(scale).setScrollFactor(0);
-
-    this.add
-      .text(this.game.config.width * 0.5, this.game.config.height * 0.5, "Hi reese", {
-        fontFamily: "Arial Black",
-        fontSize: 38,
-        color: "#ffffff",
-        stroke: "#000000",
-        strokeThickness: 8,
-        align: "center",
-      })
-      .setOrigin(0.5);
+    Button(this);
 
     this.input.once("pointerdown", () => {
       this.scene.start("GameOver");
