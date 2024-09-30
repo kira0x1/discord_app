@@ -1,4 +1,5 @@
 import { Scene } from "phaser";
+import config from "../config";
 
 export class Preloader extends Scene {
   constructor() {
@@ -8,6 +9,9 @@ export class Preloader extends Scene {
   init() {
     const gameWidth: number = Number(this.game.config.width);
     const gameHeight: number = Number(this.game.config.height);
+
+    config.width = gameWidth;
+    config.height = gameHeight;
 
     //  A simple progress bar. This is the outline of the bar.
     this.add.rectangle(gameWidth * 0.5, gameHeight * 0.5, 468, 32).setStrokeStyle(1, 0xffffff);

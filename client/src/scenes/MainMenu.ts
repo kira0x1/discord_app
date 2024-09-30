@@ -1,4 +1,6 @@
 import { Scene } from "phaser";
+import Button from "../components/Button";
+import config from "../config";
 
 export class MainMenu extends Scene {
   constructor() {
@@ -22,7 +24,8 @@ export class MainMenu extends Scene {
       })
       .setOrigin(0.5);
 
-    this.input.once("pointerdown", () => {
+    const btn = Button(this, { text: "Start", x: config.width / 2, y: config.height - 100 });
+    btn.once("pointerdown", () => {
       this.scene.start("Game");
     });
   }

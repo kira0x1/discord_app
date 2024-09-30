@@ -7,6 +7,12 @@ export default ({ mode }) => {
     envDir: "../",
     server: {
       proxy: {
+        "/.proxy/src": {
+          target: "http://localhost:5173/assets",
+          changeOrigin: true,
+          ws: true,
+          rewrite: (path) => path.replace(/^\/.proxy\/src/, ""),
+        },
         "/.proxy/assets": {
           target: "http://localhost:5173/assets",
           changeOrigin: true,

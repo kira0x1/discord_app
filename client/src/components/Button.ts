@@ -1,8 +1,15 @@
 import { Scene } from "phaser";
 
-export default function Button(scene: Scene) {
+interface Props {
+  x: number;
+  y: number;
+  text: string;
+  isVisible?: boolean;
+}
+
+export default function Button(scene: Scene, props: Props) {
   const button = scene.add
-    .text(400, 300, "Play x Game", {
+    .text(props.x, props.y, props.text, {
       fontFamily: "Arial",
       fontSize: "32px",
       color: "#ffffff",
@@ -12,6 +19,10 @@ export default function Button(scene: Scene) {
     })
     .setPadding(32)
     .setOrigin(0.5);
+
+  if (props.isVisible !== undefined) {
+    button.setVisible(props.isVisible);
+  }
 
   button.setInteractive({ useHandCursor: true });
 
