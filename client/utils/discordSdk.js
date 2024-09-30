@@ -19,11 +19,7 @@ const initiateDiscordSDK = async () => {
     const mockGuildId = getOverrideOrRandomSessionValue("guild_id");
     const mockChannelId = getOverrideOrRandomSessionValue("channel_id");
 
-    discordSdk = new DiscordSDKMock(
-      import.meta.env.VITE_CLIENT_ID,
-      mockGuildId,
-      mockChannelId
-    );
+    discordSdk = new DiscordSDKMock(import.meta.env.VITE_CLIENT_ID, mockGuildId, mockChannelId);
     const discriminator = String(mockUserId.charCodeAt(0) % 5);
 
     discordSdk._updateCommandMocks({
